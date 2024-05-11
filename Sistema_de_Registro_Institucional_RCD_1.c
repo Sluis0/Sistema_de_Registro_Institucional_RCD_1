@@ -125,6 +125,7 @@ int main()
     printf("\t1 - Registrar nomes\n");
     printf("\t2 - Consultar nomes\n");
     printf("\t3 - Deletar nomes\n\n"); // Fim do Menu
+    printf("\t4 - Sair do sistema\n\n");
     printf("Opção:  \n");
 
     scanf("%d", &opcao); //Armazenando escolha do usuario
@@ -143,6 +144,11 @@ int main()
     
     case 3: // se o usuario digitar 3 entra na função deletar
     deletar();
+    break;
+
+    case 4:
+    printf("Obrigado por utilizar o sistema!!");
+    return 0;
     break;
 
     default: // se o usuario digitar algum valor diferente das opções do switch ele da erro
