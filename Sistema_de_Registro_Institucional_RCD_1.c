@@ -112,52 +112,64 @@ int main()
 {
     int opcao=0; //Definição de variaveis
     int laco=1;
-  
-    for (laco=1;laco==1;) // cria um laço de repetição 'for' e inicia 'laco' com valor '1' 
-    {// laco==1, enquanto o laco tiver valor 1 ele continuará em loop
+    char senhadigitada[10]="a";
+    int comparacao;
 
-    system("cls");
 
-    setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
-  
-    printf("###Sistema de Registro Institucional RCD###\n\n"); //Inicio do menu
-    printf("Escolha a opção desejada do menu:\n\n");
-    printf("\t1 - Registrar nomes\n");
-    printf("\t2 - Consultar nomes\n");
-    printf("\t3 - Deletar nomes\n\n"); // Fim do Menu
-    printf("\t4 - Sair do sistema\n\n");
-    printf("Opção:  \n");
+    printf("###Sistema de Registro Institucional RCD###\n\n");
+    printf("Login de Administrador!\n\nDigite a sua senha: ");
+    scanf("%s", senhadigitada);
 
-    scanf("%d", &opcao); //Armazenando escolha do usuario
- 
-    system("cls"); // limpa a tela
+    comparacao = strcmp(senhadigitada, "admin");
 
-    switch(opcao) // switch para entrar nas funções
+    if(comparacao== 0)
     {
-    case 1: // se o usuario digitar 1 entra na função registro
-    registro(); // chama o int registro
-    break; // quando a função termidar de ser executada o break sai do switch
-    
-    case 2: // se o usuario digitar 2 entra na função consulta
-    consulta();
-    break;
-    
-    case 3: // se o usuario digitar 3 entra na função deletar
-    deletar();
-    break;
+        system("cls");
+        for (laco=1;laco==1;) // cria um laço de repetição 'for' e inicia 'laco' com valor '1' 
+        {// laco==1, enquanto o laco tiver valor 1 ele continuará em loop
+        setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
+        system("cls");
+        printf("###Sistema de Registro Institucional RCD###\n\n"); //Inicio do menu
+        printf("Escolha a opção desejada do menu:\n\n");
+        printf("\t1 - Registrar nomes\n");
+        printf("\t2 - Consultar nomes\n");
+        printf("\t3 - Deletar nomes\n\n"); // Fim do Menu
+        printf("\t4 - Sair do sistema\n\n");
+        printf("Opção:  \n");
 
-    case 4:
-    printf("Obrigado por utilizar o sistema!!");
-    return 0;
-    break;
-
-    default: // se o usuario digitar algum valor diferente das opções do switch ele da erro
-    printf("Essa opção não está dispinivel\n");
-    system("pause");
-    break;
-    }// fim do switch 
-
+        scanf("%d", &opcao); //Armazenando escolha do usuario
     
-    // fim da seleção
-    }
-}
+        system("cls"); // limpa a tela
+
+        switch(opcao) // switch para entrar nas funções
+            {
+            case 1: // se o usuario digitar 1 entra na função registro
+            registro(); // chama o int registro
+            break; // quando a função termidar de ser executada o break sai do switch
+    
+            case 2: // se o usuario digitar 2 entra na função consulta
+            consulta();
+            break;
+
+            case 3: // se o usuario digitar 3 entra na função deletar
+            deletar();
+            break;
+
+            case 4:
+            printf("Obrigado por utilizar o sistema!!");
+            return 0;
+            break;
+
+            default: // se o usuario digitar algum valor diferente das opções do switch ele da erro
+            printf("Essa opção não está dispinivel\n");
+            system("pause");
+            break;
+            }// fim do switch
+        
+        }// fim da seleção
+    }    
+    else
+        printf("Senha Incorreta!\n");
+        system("pause");
+
+}// fim da main
