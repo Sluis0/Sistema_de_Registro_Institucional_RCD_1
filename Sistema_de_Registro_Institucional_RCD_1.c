@@ -115,18 +115,27 @@ int main()
     char senhadigitada[10]="a";
     int comparacao;
 
-
     printf("###Sistema de Registro Institucional RCD###\n\n");
-    printf("Login de Administrador!\n\nDigite a sua senha: ");
-    scanf("%s", senhadigitada);
-
-    comparacao = strcmp(senhadigitada, "admin");
-
-    if(comparacao== 0)
+    while(1) //inicio do loop de validação de senha
     {
-        system("cls");
-        for (laco=1;laco==1;) // cria um laço de repetição 'for' e inicia 'laco' com valor '1' 
-        {// laco==1, enquanto o laco tiver valor 1 ele continuará em loop
+        printf("Login de Administrador!\n\nDigite a sua senha: ");
+        scanf("%s", senhadigitada);// armazena a senha na variavel 'senhadigitada'
+
+        comparacao = strcmp(senhadigitada, "admin");// compara a variavel 'senhadigitada' que o usuario escreveu com a senha esperada
+        if (comparacao == 0)// se ele acertar a senha o loop encerra e da sequencia no codigo
+        {
+            printf("Acesso Permitido!\n");
+            break;// encerra o loop da senha
+        }
+        else// se não acertar e ele retornar um valor diferente de 0 o loop continua até acertar a senha
+        {
+            printf("Senha incorreta! Tente novamente.\n");
+            system("pause");// pausa o sistema
+        }
+    }    
+        
+        while (1)// loop do menu
+        {
         setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
         system("cls");
         printf("###Sistema de Registro Institucional RCD###\n\n"); //Inicio do menu
@@ -165,11 +174,7 @@ int main()
             system("pause");
             break;
             }// fim do switch
-        
-        }// fim da seleção
-    }    
-    else
-        printf("Senha Incorreta!\n");
-        system("pause");
+        }// fim do while
+    return 0;
+}  
 
-}// fim da main
